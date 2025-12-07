@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Car Detailing Feedback</title>
+
+
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(to bottom, #111, #333);
+
+            padding: 20px;
+
+            margin: 0;
+
+            color: #fff;
+
+        }
+
+
+
+        @keyframes fadeIn {
+
+            from {opacity: 0; transform: translateY(15px);}
+
+            to {opacity: 1; transform: translateY(0);}
+
+        }
+
+
+
+        .container {
+
+            animation: fadeIn 0.9s ease-out;
+
+            max-width: 600px;
+
+            background: #fff;
+
+            color: #000;
+
+            margin: auto;
+
+            padding: 25px;
+
+            border-radius: 16px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+
+        }
+
+
+
+        h2 {
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+        }
+
+
+
+        label {
+
+            font-weight: bold;
+
+            margin-top: 20px;
+
+            display: block;
+
+        }
+
+
+
+        input, select, textarea {
+
+            width: 100%;
+
+            padding: 12px;
+
+            margin-top: 8px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        textarea {
+
+            resize: vertical;
+
+        }
+
+
+
+        /* Star rating styling */
+
+        .star-rating {
+
+            display: flex;
+
+            flex-direction: row-reverse;
+
+            justify-content: flex-end;
+
+            margin-top: 10px;
+
+        }
+
+
+
+        .star-rating input {
+
+            display: none;
+
+        }
+
+
+
+        .star-rating label {
+
+            font-size: 32px;
+
+            color: #ccc;
+
+            cursor: pointer;
+
+            transition: color 0.2s ease;
+
+            padding: 0 5px;
+
+        }
+
+
+
+        .star-rating label:hover,
+
+        .star-rating label:hover ~ label {
+
+            color: gold;
+
+        }
+
+
+
+        .star-rating input:checked ~ label {
+
+            color: gold;
+
+        }
+
+
+
+        button {
+
+            margin-top: 25px;
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #000;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            transition: transform 0.15s ease, opacity 0.2s ease;
+
+        }
+
+
+
+        button:hover {
+
+            opacity: 0.9;
+
+            transform: translateY(-2px);
+
+        }
+
+
+
+        button:active {
+
+            transform: scale(0.97);
+
+        }
+
+
+
+        @media (max-width: 480px) {
+
+            .container {
+
+                padding: 20px;
+
+            }
+
+            h2 {
+
+                font-size: 22px;
+
+            }
+
+            button {
+
+                font-size: 16px;
+
+            }
+
+            .star-rating label {
+
+                font-size: 28px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="container">
+
+    <h2>Car Detailing Feedback Form</h2>
+
+
+
+    <form action="YOUR-SUBMISSION-ENDPOINT" method="POST">
+
+        
+
+        <label>Name</label>
+
+        <input type="text" name="name" required>
+
+
+
+        <label>Date of Service</label>
+
+        <input type="date" name="date" required>
+
+
+
+        <label>Type of Detailing Service</label>
+
+        <select name="service_type" required>
+
+            <option value="">Select one</option>
+
+            <option>Basic Wash</option>
+
+            <option>Full Interior Detail</option>
+
+            <option>Full Exterior Detail</option>
+
+            <option>Full Interior & Exterior</option>
+
+            <option>Premium / Deep Clean</option>
+
+            <option>Other</option>
+
+        </select>
+
+
+
+        <!-- Star Rating #1 Satisfaction -->
+
+        <label>How satisfied were you with the service?</label>
+
+        <div class="star-rating">
+
+            <input type="radio" name="satisfaction" id="s5" value="5" required><label for="s5">★</label>
+
+            <input type="radio" name="satisfaction" id="s4" value="4"><label for="s4">★</label>
+
+            <input type="radio" name="satisfaction" id="s3" value="3"><label for="s3">★</label>
+
+            <input type="radio" name="satisfaction" id="s2" value="2"><label for="s2">★</label>
+
+            <input type="radio" name="satisfaction" id="s1" value="1"><label for="s1">★</label>
+
+        </div>
+
+
+
+        <!-- Star Rating #2 Cleanliness -->
+
+        <label>How was the cleanliness after the detail?</label>
+
+        <div class="star-rating">
+
+            <input type="radio" name="cleanliness" id="c5" value="5" required><label for="c5">★</label>
+
+            <input type="radio" name="cleanliness" id="c4" value="4"><label for="c4">★</label>
+
+            <input type="radio" name="cleanliness" id="c3" value="3"><label for="c3">★</label>
+
+            <input type="radio" name="cleanliness" id="c2" value="2"><label for="c2">★</label>
+
+            <input type="radio" name="cleanliness" id="c1" value="1"><label for="c1">★</label>
+
+        </div>
+
+
+
+        <!-- Star Rating #3 Timeliness -->
+
+        <label>Was the vehicle finished on time?</label>
+
+        <div class="star-rating">
+
+            <input type="radio" name="timeliness" id="t5" value="5" required><label for="t5">★</label>
+
+            <input type="radio" name="timeliness" id="t4" value="4"><label for="t4">★</label>
+
+            <input type="radio" name="timeliness" id="t3" value="3"><label for="t3">★</label>
+
+            <input type="radio" name="timeliness" id="t2" value="2"><label for="t2">★</label>
+
+            <input type="radio" name="timeliness" id="t1" value="1"><label for="t1">★</label>
+
+        </div>
+
+
+
+        <label>Would you use our detailing service again?</label>
+
+        <select name="return" required>
+
+            <option value="">Select one</option>
+
+            <option>Yes</option>
+
+            <option>No</option>
+
+            <option>Maybe</option>
+
+        </select>
+
+
+
+        <label>Any suggestions or comments?</label>
+
+        <textarea name="comments" rows="4" placeholder="Tell us anything we can improve or what you loved!"></textarea>
+
+
+
+        <button type="submit">Submit Feedback</button>
+
+    </form>
+
+</div>
+
+
+
+</body>
+
+</html>
