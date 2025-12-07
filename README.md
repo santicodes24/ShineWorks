@@ -1,2 +1,2 @@
 # ShineWorks
-Detailing car company
+ShineWorks Detailing by SS
